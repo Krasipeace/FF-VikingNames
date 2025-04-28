@@ -3,14 +3,16 @@ using UnityEngine;
 using MelonLoader;
 
 using System.Collections.Generic;
+using TerrainGen;
 
-[assembly: MelonInfo(typeof(VikingNames.VikingNames), "Viking Names", "1.0.1", "Krasipeace")]
+[assembly: MelonInfo(typeof(VikingNames.VikingNames), "Viking Names", "1.0.2", "Krasipeace")]
 [assembly: MelonGame("Crate Entertainment", "Farthest Frontier")]
 
 namespace VikingNames
 {
     public class VikingNames : MelonMod
     {
+        # region Collections
         public static List<string> MaleVikingNames = new List<string>()
         {
             "Agnar", "Alaric", "Alfgeir", "Alvi", "Arinbjorn", "Arnkell", "Arnor", "Asbjorn", "Askell", "Astrid",
@@ -134,25 +136,25 @@ namespace VikingNames
             "The Greenland Settlers",
             "The Vinland Voyagers"
         };
-
+        #endregion
         public override void OnInitializeMelon()
         {
             LoggerInstance.Msg("Viking Names mod loaded!");
         }
-
+        # region Prefixes
         [HarmonyPatch(typeof(VillagerNameManager), "GetRandomName")]
         public class Patch_VillagerNameManager_GetRandomName
         {
             protected static bool Prefix(bool isMale, ref string __result)
             {
-                if (isMale && MaleVikingNames.Count > 0)
+                if (isMale)
                 {
                     __result = MaleVikingNames[UnityEngine.Random.Range(0, MaleVikingNames.Count)];
 
                     return false;
                 }
 
-                if (!isMale && FemaleVikingNames.Count > 0)
+                if (!isMale)
                 {
                     __result = FemaleVikingNames[UnityEngine.Random.Range(0, FemaleVikingNames.Count)];
 
@@ -182,5 +184,160 @@ namespace VikingNames
                 return true;
             }
         }
+        #endregion
+        #region Postfixes
+        [HarmonyPatch(typeof(GuardTower), "Awake")]
+        public class RenameGuardTower
+        {
+            protected static void Postfix(GuardTower __instance)
+            {
+                __instance.displayName = "Loki's Rest";
+            }
+        }
+
+        [HarmonyPatch(typeof(TransportWagon), "Awake")]
+        public class RenameTransportWagon
+        {
+            protected static void Postfix(TransportWagon __instance)
+            {
+                Traverse.Create(__instance).Property("displayName").SetValue("Chariot of Meili");
+            }
+        }
+
+        [HarmonyPatch(typeof(SupplyWagon), "Awake")]
+        public class RenameSupplyWagon
+        {
+            protected static void Postfix(SupplyWagon __instance)
+            {
+                __instance.displayName = "Tyr's Legacy";
+            }
+        }
+
+        [HarmonyPatch(typeof(WagonShop), "Awake")]
+        public class RenameWagonShop
+        {
+            protected static void Postfix(WagonShop __instance)
+            {
+                __instance.displayName = "Nerthus Wagon Shop";
+            }
+        }
+
+        [HarmonyPatch(typeof(School), "Awake")]
+        public class RenameSchool
+        {
+            protected static void Postfix(School __instance)
+            {
+                Traverse.Create(__instance).Property("displayName").SetValue("School of Vor");
+            }
+        }
+
+        [HarmonyPatch(typeof(Pub), "Awake")]
+        public class RenamePub
+        {
+            protected static void Postfix(Pub __instance)
+            {
+                __instance.displayName = "Pub of Bragi";
+            }
+        }
+
+        [HarmonyPatch(typeof(Library), "Awake")]
+        public class RenameLibrary
+        {
+            protected static void Postfix(Library __instance)
+            {
+                __instance.displayName = "Saga's Library";
+            }
+        }
+
+        [HarmonyPatch(typeof(Crypt), "Awake")]
+        public class RenameCrypt
+        {
+            protected static void Postfix(Crypt __instance)
+            {
+                __instance.displayName = "Valhalla Halls";
+            }
+        }
+
+        [HarmonyPatch(typeof(Graveyard), "Awake")]
+        public class RenameGraveyard
+        {
+            protected static void Postfix(Graveyard __instance)
+            {
+                __instance.displayName = "Valhalla's fields";
+            }
+        }
+
+        [HarmonyPatch(typeof(TradingPost), "Awake")]
+        public class RenameTradingPost
+        {
+            protected static void Postfix(TradingPost __instance)
+            {
+                __instance.displayName = "Trading Post of Var";
+            }
+        }
+
+        [HarmonyPatch(typeof(HunterBuilding), "Awake")]
+        public class RenameHunterBuilding
+        {
+            protected static void Postfix(HunterBuilding __instance)
+            {
+                __instance.displayName = "Ullr Hunter Cabin";
+            }
+        }
+
+        [HarmonyPatch(typeof(ForagerShack), "Awake")]
+        public class RenameForagerShack
+        {
+            protected static void Postfix(ForagerShack __instance)
+            {
+                __instance.displayName = "Vidar Forager Shack";
+            }
+        }
+
+        [HarmonyPatch(typeof(FishingShack), "Awake")]
+        public class RenameFishingShack
+        {
+            protected static void Postfix(FishingShack __instance)
+            {
+                __instance.displayName = "Njord Fisherman";
+            }
+        }
+
+        [HarmonyPatch(typeof(SmokeHouse), "Awake")]
+        public class RenameSmokeHouse
+        {
+            protected static void Postfix(SmokeHouse __instance)
+            {
+                __instance.displayName = "Smoke House of Hodur";
+            }
+        }
+
+        [HarmonyPatch(typeof(Temple), "Awake")]
+        public class RenameTemple
+        {
+            protected static void Postfix(Temple __instance)
+            {
+                __instance.displayName = "Temple of Frigg";
+            }
+        }
+
+        [HarmonyPatch(typeof(Gate), "Awake")]
+        public class RenameGate
+        {
+            protected static void Postfix(Gate __instance)
+            {
+                __instance.displayName = "Baldur's Gate";
+            }
+        }
+
+        [HarmonyPatch(typeof(RaiderGuardTower), "Awake")]
+        public class RenameRaiderGuardTower
+        {
+            protected static void Postfix(RaiderGuardTower __instance)
+            {
+                __instance.displayName = "Fenrir's Rest";
+            }
+        }
+        #endregion
     }
 }
