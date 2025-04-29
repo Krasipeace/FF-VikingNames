@@ -236,7 +236,7 @@ namespace VikingNames
         {
             protected static void Postfix(Pub __instance)
             {
-                __instance.displayName = "Pub of Bragi";
+                __instance.displayName = "Bragi's Pub";
             }
         }
 
@@ -263,7 +263,7 @@ namespace VikingNames
         {
             protected static void Postfix(Graveyard __instance)
             {
-                __instance.displayName = "Valhalla's fields";
+                Traverse.Create(__instance).Property("displayName").SetValue("Valhalla's fields");
             }
         }
 
@@ -318,6 +318,16 @@ namespace VikingNames
             protected static void Postfix(Temple __instance)
             {
                 __instance.displayName = "Temple of Frigg";
+            }
+        }
+
+        [HarmonyPatch(typeof(TemporaryShelter), "Awake")]
+        public class RenameTemporaryShelter
+        {
+            protected static void Postfix(TemporaryShelter __instance)
+            {
+                __instance.displayName = "Skadi's Shelter";
+                __instance.tag = __instance.displayName;
             }
         }
 
