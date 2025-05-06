@@ -3,7 +3,6 @@ using UnityEngine;
 using MelonLoader;
 
 using System.Collections.Generic;
-using TerrainGen;
 
 [assembly: MelonInfo(typeof(VikingNames.VikingNames), "Viking Names", "1.0.2", "Krasipeace")]
 [assembly: MelonGame("Crate Entertainment", "Farthest Frontier")]
@@ -13,7 +12,7 @@ namespace VikingNames
     public class VikingNames : MelonMod
     {
         # region Collections
-        public static List<string> MaleVikingNames = new List<string>()
+        private static readonly List<string> MaleVikingNames = new List<string>()
         {
             "Agnar", "Alaric", "Alfgeir", "Alvi", "Arinbjorn", "Arnkell", "Arnor", "Asbjorn", "Askell", "Astrid",
             "Audun", "Bard", "Bersi", "Bjarni", "Bjorn", "Boke", "Bolverk", "Brand", "Brokkr", "Canute",
@@ -27,7 +26,7 @@ namespace VikingNames
             "Thord", "Thorfinn", "Thorgeir", "Thorleif", "Thorstein", "Torfi", "Tryggvi", "Ulf", "Valdemar", "Vidar"
         };
 
-        public static List<string> FemaleVikingNames = new List<string>()
+        private static readonly List<string> FemaleVikingNames = new List<string>()
         {
             "Aasa", "Adils", "Aesa", "Agneta", "Alfhild", "Alva", "Arnbjorg", "Arndis", "Astrid", "Aud",
             "Audhild", "Bergdis", "Bergljot", "Bera", "Birgit", "Bjarnhild", "Bodil", "Borghild", "Brynhild", "Daga",
@@ -41,7 +40,7 @@ namespace VikingNames
             "Steinvor", "Svanhild", "Swanhild", "Thora", "Thordis", "Thorunn", "Thyra", "Tove", "Unn", "Ylva"
         };
 
-        public static HashSet<string> VikingCompanyNames = new HashSet<string>()
+        private static readonly HashSet<string> VikingCompanyNames = new HashSet<string>()
         {
             "Ivar the Boneless' Host",
             "Ragnar's Hird",
@@ -139,7 +138,7 @@ namespace VikingNames
         #endregion
         public override void OnInitializeMelon()
         {
-            LoggerInstance.Msg("Viking Names mod loaded!");
+            LoggerInstance.Msg("Viking Names initiated...");
         }
         # region Prefixes
         [HarmonyPatch(typeof(VillagerNameManager), "GetRandomName")]
@@ -327,7 +326,6 @@ namespace VikingNames
             protected static void Postfix(TemporaryShelter __instance)
             {
                 __instance.displayName = "Skadi's Shelter";
-                __instance.tag = __instance.displayName;
             }
         }
 
