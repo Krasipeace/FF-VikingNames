@@ -11,6 +11,7 @@
 - It might have conflict with other villager renaming mods!
 
 You can find the mod at Steam Workshop at [link](https://steamcommunity.com/sharedfiles/filedetails/?id=3470212265)
+[Click here for download](https://github.com/Krasipeace/FF-VillagerNames/releases/download/1.0.2/VikingNames.zip)
 
 ## Anglo-Saxon Names
 ![anglo-saxon-picture](/anglo-saxon-names.png)
@@ -23,7 +24,8 @@ You can find the mod at Steam Workshop at [link](https://steamcommunity.com/shar
 - It might have conflict with other villager renaming mods!
 
 You can find the mod at Steam Workshop at [link](https://steamcommunity.com/sharedfiles/filedetails/?id=3477008831)
+[Click here for download](https://github.com/Krasipeace/FF-VillagerNames/releases/download/1.0.0/AngloSaxonNames.dll)
 
 <hr>
 
-You can download the mods from [Releases](https://github.com/Krasipeace/FF-VikingNames/releases).
+You can download the mods from [Releases](https://github.com/Krasipeace/FF-VillagerNames/releases).
