@@ -40,7 +40,7 @@ namespace VikingNames
             "Steinvor", "Svanhild", "Swanhild", "Thora", "Thordis", "Thorunn", "Thyra", "Tove", "Unn", "Ylva"
         };
 
-        private static readonly HashSet<string> VikingCompanyNames = new HashSet<string>()
+        private static readonly List<string> VikingCompanyNames = new List<string>()
         {
             "Ivar the Boneless' Host",
             "Ragnar's Hird",
@@ -148,14 +148,14 @@ namespace VikingNames
             {
                 if (isMale)
                 {
-                    __result = MaleVikingNames[UnityEngine.Random.Range(0, MaleVikingNames.Count)];
+                    __result = MaleVikingNames[Random.Range(0, MaleVikingNames.Count)];
 
                     return false;
                 }
 
                 if (!isMale)
                 {
-                    __result = FemaleVikingNames[UnityEngine.Random.Range(0, FemaleVikingNames.Count)];
+                    __result = FemaleVikingNames[Random.Range(0, FemaleVikingNames.Count)];
 
                     return false;
                 }
@@ -165,22 +165,18 @@ namespace VikingNames
         }
 
         [HarmonyPatch(typeof(VillagerNameManager), "GetRandomCompanyName")]
-        public class Patch_CompanyNames_WithVikingCompanyName
+        public class PatchGetRandomCompanyName
         {
-            protected static bool Prefix(HashSet<string> takenNames, ref string __result)
+            private static bool initialized = false;
+
+            protected static void Prefix()
             {
-                foreach (string companyName in VikingCompanyNames)
-                {
-                    if (!takenNames.Contains(companyName))
-                    {
-                        takenNames.Add(companyName);
-                        __result = companyName;
+                if (initialized) return;
 
-                        return false;
-                    }
-                }
+                initialized = true;
 
-                return true;
+                var field = AccessTools.Field(typeof(VillagerNameManager), "allCompanyNames");
+                field.SetValue(null, VikingCompanyNames);
             }
         }
         #endregion

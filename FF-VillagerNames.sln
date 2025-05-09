@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VikingNames", "VikingNames\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AngloSaxonNames", "AngloSaxonNames\AngloSaxonNames.csproj", "{BF649C4B-8D8C-4C9D-A744-6ED4B454DBE5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreditsNames", "CreditsNames\CreditsNames.csproj", "{FEC87776-3A72-43D9-BA36-A1732CCBB235}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,14 @@ Global
 		{BF649C4B-8D8C-4C9D-A744-6ED4B454DBE5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BF649C4B-8D8C-4C9D-A744-6ED4B454DBE5}.Release|x64.ActiveCfg = Release|Any CPU
 		{BF649C4B-8D8C-4C9D-A744-6ED4B454DBE5}.Release|x64.Build.0 = Release|Any CPU
+		{FEC87776-3A72-43D9-BA36-A1732CCBB235}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEC87776-3A72-43D9-BA36-A1732CCBB235}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEC87776-3A72-43D9-BA36-A1732CCBB235}.Debug|x64.ActiveCfg = Debug|x64
+		{FEC87776-3A72-43D9-BA36-A1732CCBB235}.Debug|x64.Build.0 = Debug|x64
+		{FEC87776-3A72-43D9-BA36-A1732CCBB235}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEC87776-3A72-43D9-BA36-A1732CCBB235}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FEC87776-3A72-43D9-BA36-A1732CCBB235}.Release|x64.ActiveCfg = Release|Any CPU
+		{FEC87776-3A72-43D9-BA36-A1732CCBB235}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,6 +1,6 @@
 ﻿using HarmonyLib;
-
 using MelonLoader;
+using UnityEngine;
 
 using System.Collections.Generic;
 
@@ -56,14 +56,14 @@ namespace AngloSaxonNames
             {
                 if (isMale)
                 {
-                    __result = AngloSaxonMaleNames[UnityEngine.Random.Range(0, AngloSaxonMaleNames.Count)];
+                    __result = AngloSaxonMaleNames[Random.Range(0, AngloSaxonMaleNames.Count)];
 
                     return false;
                 }
 
                 if (!isMale)
                 {
-                    __result = AngloSaxonFemaleNames[UnityEngine.Random.Range(0, AngloSaxonFemaleNames.Count)];
+                    __result = AngloSaxonFemaleNames[Random.Range(0, AngloSaxonFemaleNames.Count)];
 
                     return false;
                 }
@@ -73,22 +73,18 @@ namespace AngloSaxonNames
         }
 
         [HarmonyPatch(typeof(VillagerNameManager), "GetRandomCompanyName")]
-        public class PatchCompanyNames
+        public class PatchGetRandomCompanyName
         {
-            protected static bool Prefix(HashSet<string> takenNames, ref string __result)
+            private static bool initialized = false;
+
+            protected static void Prefix()
             {
-                foreach (string companyName in AngloSaxonArmyNames)
-                {
-                    if (!takenNames.Contains(companyName))
-                    {
-                        takenNames.Add(companyName);
-                        __result = companyName;
+                if (initialized) return;
 
-                        return false;
-                    }
-                }
+                initialized = true;
 
-                return true;
+                var field = AccessTools.Field(typeof(VillagerNameManager), "allCompanyNames");
+                field.SetValue(null, AngloSaxonArmyNames);
             }
         }
 
