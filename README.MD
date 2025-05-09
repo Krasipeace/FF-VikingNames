@@ -11,6 +11,7 @@
 - It might have conflict with other villager renaming mods!
 
 You can find the mod at Steam Workshop at [link](https://steamcommunity.com/sharedfiles/filedetails/?id=3470212265)
+
 [Click here for download](https://github.com/Krasipeace/FF-VillagerNames/releases/download/1.0.2/VikingNames.zip)
 
 ## Anglo-Saxon Names
@@ -24,7 +25,21 @@ You can find the mod at Steam Workshop at [link](https://steamcommunity.com/shar
 - It might have conflict with other villager renaming mods!
 
 You can find the mod at Steam Workshop at [link](https://steamcommunity.com/sharedfiles/filedetails/?id=3477008831)
+
 [Click here for download](https://github.com/Krasipeace/FF-VillagerNames/releases/download/1.0.0/AngloSaxonNames.dll)
+
+## Credits Names
+![creditsnamespic](/creditsnames.png)
+
+- Changes the names of the villagers to the names of the creators/playtesters of the game.
+- Changes the names of company parties to inspirational names of work teams.
+- Works on already started games on 0.9.7 [Mono] for newly immigrated or birthed citizens. 
+- Works on newly created games on 0.9.7 [Mono]. It doesn't rename old villager names. 
+- It might have conflict with other villager renaming mods!
+
+You can find the mod at Steam Workshop at [link](https://steamcommunity.com/sharedfiles/filedetails/?id=3478468778)
+
+[Click here for download](https://github.com/Krasipeace/FF-VillagerNames/releases/download/1.0.0/CreditsNames.zip)
 
 <hr>
 
