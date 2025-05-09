@@ -26,7 +26,7 @@ You can find the mod at Steam Workshop at [link](https://steamcommunity.com/shar
 
 You can find the mod at Steam Workshop at [link](https://steamcommunity.com/sharedfiles/filedetails/?id=3477008831)
 
-[Click here for download](https://github.com/Krasipeace/FF-VillagerNames/releases/download/1.0.0/AngloSaxonNames.dll)
+[Click here for download](https://github.com/Krasipeace/FF-VillagerNames/releases/download/1.0.0/AngloSaxonNames.zip)
 
 ## Credits Names
 ![creditsnamespic](/creditsnames.png)
